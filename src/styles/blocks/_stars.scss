@@ -1,21 +1,20 @@
 .stars {
   display: flex;
-  gap: 4px;
 
   &__star {
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
     background-image: url('../images/star.svg');
-    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 
-    &--active {
-      background-image: url('../images/star-active.svg');
+    &:last-child {
+      margin-right: 0;
     }
   }
 
-  // Atende ao requisito "all stars--N modifiers work as expected"
+  // Pinta de amarelo as primeiras N estrelas do modificador stars--N
   @for $i from 1 through 5 {
     &--#{$i} &__star:nth-child(-n + #{$i}) {
       background-image: url('../images/star-active.svg');
